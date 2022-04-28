@@ -15,7 +15,7 @@ namespace Client.Ver1
 {
     public partial class FrmClient : Form
     {
-        private PylonCamera mCamera { get; set; }
+        //private PylonCamera mCamera { get; set; }
         private string UnitId { get; set; }
         private string SerialNumber { get; set; }
         private Shipper mShipper { get; set; }
