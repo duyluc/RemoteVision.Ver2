@@ -34,10 +34,8 @@ namespace Client.Ver1
             this.Display = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDisconnect = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lbConnectStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnConnect = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbIPAddress = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -108,9 +106,7 @@ namespace Client.Ver1
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnDisconnect);
             this.panel1.Controls.Add(this.statusStrip1);
-            this.panel1.Controls.Add(this.btnConnect);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tbIPAddress);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -118,18 +114,6 @@ namespace Client.Ver1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(288, 115);
             this.panel1.TabIndex = 0;
-            // 
-            // btnDisconnect
-            // 
-            this.btnDisconnect.BackColor = System.Drawing.Color.Transparent;
-            this.btnDisconnect.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDisconnect.BackgroundImage")));
-            this.btnDisconnect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDisconnect.Location = new System.Drawing.Point(223, 46);
-            this.btnDisconnect.Name = "btnDisconnect";
-            this.btnDisconnect.Size = new System.Drawing.Size(51, 39);
-            this.btnDisconnect.TabIndex = 4;
-            this.btnDisconnect.UseVisualStyleBackColor = false;
-            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
             // statusStrip1
             // 
@@ -147,18 +131,6 @@ namespace Client.Ver1
             this.lbConnectStatus.Name = "lbConnectStatus";
             this.lbConnectStatus.Size = new System.Drawing.Size(117, 17);
             this.lbConnectStatus.Text = "Status: Disconnected";
-            // 
-            // btnConnect
-            // 
-            this.btnConnect.BackColor = System.Drawing.Color.Transparent;
-            this.btnConnect.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConnect.BackgroundImage")));
-            this.btnConnect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnConnect.Location = new System.Drawing.Point(166, 46);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(51, 39);
-            this.btnConnect.TabIndex = 2;
-            this.btnConnect.UseVisualStyleBackColor = false;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // label1
             // 
@@ -192,7 +164,6 @@ namespace Client.Ver1
             // 
             // btnRefreshLV
             // 
-            this.btnRefreshLV.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRefreshLV.BackgroundImage")));
             this.btnRefreshLV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnRefreshLV.Location = new System.Drawing.Point(252, 166);
             this.btnRefreshLV.Name = "btnRefreshLV";
@@ -248,7 +219,6 @@ namespace Client.Ver1
             // btnCapture
             // 
             this.btnCapture.BackColor = System.Drawing.Color.Transparent;
-            this.btnCapture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCapture.BackgroundImage")));
             this.btnCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCapture.Location = new System.Drawing.Point(230, 404);
             this.btnCapture.Name = "btnCapture";
@@ -346,8 +316,6 @@ namespace Client.Ver1
         private System.Windows.Forms.TextBox tbIPAddress;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lbConnectStatus;
-        private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnRefreshLV;
         private System.Windows.Forms.ListView lvCameras;

@@ -10,20 +10,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TcpSupport;
+using PyVisionSupport;
+using PylonController;
+using System.Net;
 
 namespace Client.Ver1
 {
     public partial class FrmClient : Form
     {
-        //private PylonCamera mCamera { get; set; }
         private string UnitId { get; set; }
         private string SerialNumber { get; set; }
-        private Shipper mShipper { get; set; }
         private Terminal OutputImage { get; set; }
         private Stopwatch StopWatch { get; set; }
-        //public client ClientTcp { get; set; }
+        private PyCamera mCamera { get; set; }
+        private ClientTcp Client { get; set; }
+        private IPEndPoint ServerEp { get; set; }
 
-        public ClientMain()
+        public FrmClient()
         {
             InitializeComponent();
             this.UnitId = "0x01";
@@ -34,6 +37,7 @@ namespace Client.Ver1
             this.slHeight.DefaultName = "Height";
             UpdateDevice();
             this.FormClosing += ClientMain_FormClosing;
+            this.StopWatch = new Stopwatch();
 
         }
 
@@ -46,7 +50,7 @@ namespace Client.Ver1
         {
             try
             {
-                List<ICameraInfo> _listCameraInfo = PylonCamera.FindCameras();
+                List<ICameraInfo> _listCameraInfo = PyCamera.FindCameras();
                 ListView.ListViewItemCollection items = this.lvCameras.Items;
                 foreach (ICameraInfo camerainfo in _listCameraInfo)
                 {
@@ -117,7 +121,7 @@ namespace Client.Ver1
                 ICameraInfo _selectedCamera = item.Tag as ICameraInfo;
                 try
                 {
-                    this.mCamera = new PylonCamera(_selectedCamera);
+                    this.mCamera = new PyCamera(_selectedCamera);
                     this.mCamera.ConnectionLost += MCamera_ConnectionLost;
                     this.mCamera.CameraOpened += MCamera_CameraOpened;
                     this.mCamera.CameraClosed += MCamera_CameraClosed;
@@ -161,34 +165,16 @@ namespace Client.Ver1
         {
             if (InvokeRequired)
             {
-                // If called from a different thread, we must use the Invoke method to marshal the call to the proper thread.
                 BeginInvoke(new EventHandler<GrabStopEventArgs>(StreamGrabber_GrabStopped), sender, e);
                 return;
             }
-
             this.EnableButton(true);
-            //// Reset the stopwatch.
-            //stopWatch.Reset();
-
-            //// Re-enable the updating of the device list.
-            //updateDeviceListTimer.Start();
-
-            //// The camera stopped grabbing. Enable the grab buttons. Disable the stop button.
-            //EnableButtons(true, false);
-
-            //// If the grabbed stop due to an error, display the error message.
-            //if (e.Reason != GrabStopReason.UserRequest)
-            //{
-            //    MessageBox.Show("A grab error occured:\n" + e.ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
 
         private void StreamGrabber_ImageGrabbed(object sender, ImageGrabbedEventArgs e)
         {
             if (InvokeRequired)
             {
-                // If called from a different thread, we must use the Invoke method to marshal the call to the proper GUI thread.
-                // The grab result will be disposed after the event call. Clone the event arguments for marshaling to the GUI thread.
                 BeginInvoke(new EventHandler<ImageGrabbedEventArgs>(StreamGrabber_ImageGrabbed), sender, e.Clone());
                 return;
             }
@@ -212,45 +198,29 @@ namespace Client.Ver1
         {
             if (InvokeRequired)
             {
-                // If called from a different thread, we must use the Invoke method to marshal the call to the proper thread.
                 BeginInvoke(new EventHandler<EventArgs>(StreamGrabber_GrabStarted), sender, e);
                 return;
             }
             this.EnableButton(false);
-            // Reset the stopwatch used to reduce the amount of displayed images. The camera may acquire images faster than the images can be displayed.
-
-            //stopWatch.Reset();
-
-            // Do not update the device list while grabbing to reduce jitter. Jitter may occur because the GUI thread is blocked for a short time when enumerating.
-            //updateDeviceListTimer.Stop();
-
-            // The camera is grabbing. Disable the grab buttons. Enable the stop button.
-            //EnableButtons(false, true);
         }
 
         private void MCamera_CameraClosed(object sender, EventArgs e)
         {
             if (InvokeRequired)
             {
-                // If called from a different thread, we must use the Invoke method to marshal the call to the proper thread.
                 BeginInvoke(new EventHandler<EventArgs>(MCamera_CameraClosed), sender, e);
                 return;
             }
             this.EnableButton(false);
-            // The camera connection is closed. Disable all buttons.
-            //EnableButtons(false, false);
         }
 
         private void MCamera_CameraOpened(object sender, EventArgs e)
         {
             if (InvokeRequired)
             {
-                // If called from a different thread, we must use the Invoke method to marshal the call to the proper thread.
                 BeginInvoke(new EventHandler<EventArgs>(MCamera_CameraOpened), sender, e);
                 return;
             }
-
-            // The image provider is ready to grab. Enable the grab buttons.
             EnableButton(true);
         }
 
