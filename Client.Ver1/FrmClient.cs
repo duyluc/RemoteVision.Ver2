@@ -25,6 +25,7 @@ namespace Client.Ver1
         private PyCamera mCamera { get; set; }
         private ClientTcp Client { get; set; }
         private IPEndPoint ServerEp { get; set; }
+        public Dictionary<string,Terminal> Output { get; set; }
 
         public FrmClient()
         {
@@ -38,7 +39,9 @@ namespace Client.Ver1
             UpdateDevice();
             this.FormClosing += ClientMain_FormClosing;
             this.StopWatch = new Stopwatch();
-
+            this.OutputImage = new Terminal("OutputImage");
+            this.Output = new Dictionary<string, Terminal>();
+            this.Output.Add(this.OutputImage.Name, this.OutputImage);
         }
 
         private void ClientMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -104,7 +107,16 @@ namespace Client.Ver1
 
         private void btnRefreshLV_Click(object sender, EventArgs e)
         {
-            this.UpdateDevice();
+            //this.UpdateDevice();
+            string ip = this.tbIPAddress.Text.Split(':')[0];
+            int port = int.Parse(this.tbIPAddress.Text.Split(':')[1]);
+            this.Client = new ClientTcp(ip, port);
+            this.ServerEp = this.Client.ServerEP;
+            byte[] lenth = BitConverter.GetBytes(1);
+            byte[] senddata = new byte[5];
+            Array.Copy(lenth, senddata, 4);
+            senddata[4] = 0x06;
+            Task _ = this.Client.Command(senddata);
         }
 
         private void lvCameras_SelectedIndexChanged(object sender, EventArgs e)
@@ -187,6 +199,11 @@ namespace Client.Ver1
                     this.OutputImage.SetValue(outputimage);
                     this.Display.Image = outputimage.BitmapImage;
                 }
+                string ip = this.tbIPAddress.Text.Split(':')[0];
+                int port = int.Parse(this.tbIPAddress.Text.Split(':')[1]);
+                this.Client = new ClientTcp(ip, port);
+                this.ServerEp = this.Client.ServerEP;
+                Task _ = this.Client.Command(TcpSupport.Serialize.ObjectToByteArray(this.Output));
             }
             catch (Exception t)
             {

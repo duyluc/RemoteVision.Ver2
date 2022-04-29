@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 
-namespace ScadaCDL
+namespace Server.Ver1
 {
     public class TcpServerConnection
     {

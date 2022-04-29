@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TcpSupport
 {
-    static class Serialize
+    public static class Serialize
     {
         static public byte[] ObjectToByteArray(Dictionary<string, Terminal> obj)
         {

@@ -25,6 +25,7 @@ namespace TcpSupport
                 {
                     this.TcpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                     this.TcpSocket.Connect(this.ServerEP);
+                    break;
                 }
                 catch
                 {

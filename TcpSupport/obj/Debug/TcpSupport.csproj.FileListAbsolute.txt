@@ -4,3 +4,9 @@ D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TcpSupport\obj\Debug\TcpS
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TcpSupport\obj\Debug\TcpSupport.csproj.CoreCompileInputs.cache
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TcpSupport\obj\Debug\TcpSupport.dll
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TcpSupport\obj\Debug\TcpSupport.pdb
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\TcpSupport\obj\Debug\TcpSupport.csproj.CoreCompileInputs.cache
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\TcpSupport\obj\Debug\TcpSupport.dll
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\TcpSupport\obj\Debug\TcpSupport.pdb
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\TcpSupport\bin\Debug\TcpSupport.dll
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\TcpSupport\bin\Debug\TcpSupport.pdb
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\TcpSupport\obj\Debug\TcpSupport.csproj.AssemblyReference.cache

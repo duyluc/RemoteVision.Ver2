@@ -17,3 +17,22 @@ D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Client.Ver1\obj\Debug\Cli
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.csproj.CopyComplete
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.exe
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.pdb
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\bin\Debug\Client.Ver1.exe.config
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\bin\Debug\Client.Ver1.exe
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\bin\Debug\Client.Ver1.pdb
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\bin\Debug\Basler.Pylon.dll
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\bin\Debug\PyVisionSupport.dll
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\bin\Debug\TcpSupport.dll
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\bin\Debug\PyVisionSupport.pdb
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\bin\Debug\TcpSupport.pdb
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\bin\Debug\Basler.Pylon.xml
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.csproj.AssemblyReference.cache
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.Properties.Resources.resources
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\obj\Debug\PylonController.EnumerationComboBoxUserControl.resources
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\obj\Debug\PylonController.FloatSliderUserControl.resources
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\obj\Debug\PylonController.IntSliderUserControl.resources
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.csproj.GenerateResource.cache
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.csproj.CoreCompileInputs.cache
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.csproj.CopyComplete
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.exe
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.pdb

@@ -7,3 +7,12 @@ D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\PyVisionSupport\obj\Debug
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\PyVisionSupport\obj\Debug\PyVisionSupport.csproj.CopyComplete
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\PyVisionSupport\obj\Debug\PyVisionSupport.dll
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\PyVisionSupport\obj\Debug\PyVisionSupport.pdb
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\PyVisionSupport\bin\Debug\PyVisionSupport.dll
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\PyVisionSupport\bin\Debug\PyVisionSupport.pdb
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\PyVisionSupport\bin\Debug\Basler.Pylon.dll
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\PyVisionSupport\bin\Debug\Basler.Pylon.xml
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\PyVisionSupport\obj\Debug\PyVisionSupport.csproj.CoreCompileInputs.cache
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\PyVisionSupport\obj\Debug\PyVisionSupport.csproj.CopyComplete
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\PyVisionSupport\obj\Debug\PyVisionSupport.dll
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\PyVisionSupport\obj\Debug\PyVisionSupport.pdb
+C:\Users\duong\Source\Repos\RemoteVision.Ver2\PyVisionSupport\obj\Debug\PyVisionSupport.csproj.AssemblyReference.cache

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace PyVisionSupport
 {
+    [Serializable()]
     public class LImage
     {
         public string CameraSerialNumber { get; set; }
