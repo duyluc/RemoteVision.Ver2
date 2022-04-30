@@ -25,6 +25,7 @@ namespace TcpSupport
                 {
                     this.TcpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                     this.TcpSocket.Connect(this.ServerEP);
+                    break;
                 }
                 catch
                 {
@@ -38,24 +39,34 @@ namespace TcpSupport
 
         public async Task Command(byte[] sendData)
         {
-            try
+            Task _ = new Task(() =>
             {
-                Task _ = new Task(() =>
+                try
                 {
                     if (!this.TryConnect()) throw ConnectInterruptEx;
-                    Send(this.TcpSocket, sendData);
-                });
-                _.Start();
-                await _;
-            }
-            catch (Exception t)
-            {
-                throw t;
-            }
-            finally
-            {
-                if (this.TcpSocket.Connected) this.TcpSocket.Close();
-            }
+                    if (Send(this.TcpSocket, sendData))
+                    {
+                        this.SendResult = DeleveryResult.Success;
+                    }
+                    else
+                    {
+                        this.SendResult = DeleveryResult.Fault;
+                    }
+                    this.ReceiveResult = DeleveryResult.Fault;
+                    byte[] receivedata = Recieve(this.TcpSocket);
+                    this.ReceiveResult = DeleveryResult.Success;
+                }
+                catch (Exception t)
+                {
+
+                }
+                finally
+                {
+                    if (this.TcpSocket.Connected) this.TcpSocket.Close();
+                }
+            });
+            _.Start();
+            await _;
         }
     }
 }

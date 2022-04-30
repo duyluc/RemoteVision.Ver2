@@ -17,3 +17,4 @@ D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Client.Ver1\obj\Debug\Cli
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.csproj.CopyComplete
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.exe
 D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.pdb
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Client.Ver1\obj\Debug\Client.Ver1.FrmClient.resources

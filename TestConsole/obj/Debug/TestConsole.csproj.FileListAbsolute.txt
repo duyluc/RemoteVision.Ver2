@@ -1,0 +1,7 @@
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TestConsole\bin\Debug\TestConsole.exe.config
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TestConsole\bin\Debug\TestConsole.exe
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TestConsole\bin\Debug\TestConsole.pdb
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TestConsole\obj\Debug\TestConsole.csproj.AssemblyReference.cache
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TestConsole\obj\Debug\TestConsole.csproj.CoreCompileInputs.cache
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TestConsole\obj\Debug\TestConsole.exe
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\TestConsole\obj\Debug\TestConsole.pdb

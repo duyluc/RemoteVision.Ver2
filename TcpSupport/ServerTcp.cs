@@ -44,7 +44,9 @@ namespace TcpSupport
             ConnectedClients = new Dictionary<string, ClientBase>();
             ClientServiceTasks = new Dictionary<string, Task>();
             Input = new Dictionary<string, Terminal>();
-            if (InitServer())
+            this.TcpIPEndpoint = new IPEndPoint(IPAddress.Parse(_iPAddress), _port);
+            bool _initresult = InitServer();
+            if (_initresult)
             {
                 Task _ = this.RunServer();
             }
@@ -68,7 +70,7 @@ namespace TcpSupport
                             _result = true;
                             break;
                         }
-                        catch
+                        catch(Exception t)
                         {
                             _tryconnnectcounter++;
                             if (_tryconnnectcounter == 5)
@@ -79,6 +81,8 @@ namespace TcpSupport
                         Thread.Sleep(20);
                     }
                 });
+                _t.Start();
+                _t.Join();
             }
             catch (Exception t)
             {
@@ -91,6 +95,7 @@ namespace TcpSupport
             }
             return _result;
         }
+
         public bool EndServer()
         {
             try
@@ -111,6 +116,7 @@ namespace TcpSupport
         public async Task RunServer()
         {
             Listener.Listen(10);
+            this.EnableServer = true;
             Task _task = new Task(() =>
             {
                 Thread _t = new Thread(() =>
@@ -154,6 +160,7 @@ namespace TcpSupport
                 Task _task = new Task(() =>
                 {
                     recieveData = client.Recieve(client.TcpSocket);
+                    client.Send(client.TcpSocket,recieveData);
                 });
 
                 _task.Start();

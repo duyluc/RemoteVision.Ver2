@@ -29,13 +29,14 @@ namespace Client.Ver1
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClient));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Display = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lbConnectStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbSendData = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbReceivedData = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.tbIPAddress = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,15 +44,14 @@ namespace Client.Ver1
             this.lvCameras = new System.Windows.Forms.ListView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbTactTime = new System.Windows.Forms.StatusStrip();
+            this.probSendImage = new System.Windows.Forms.ToolStripProgressBar();
             this.lbTactTimer = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnCapture = new System.Windows.Forms.Button();
-            this.probSendImage = new System.Windows.Forms.ToolStripProgressBar();
             this.slHeight = new PylonController.IntSliderUserControl();
             this.slWidth = new PylonController.IntSliderUserControl();
             this.slGain = new PylonController.FloatSliderUserControl();
             this.slExposure = new PylonController.FloatSliderUserControl();
             this.cbImageFormat = new PylonController.EnumerationComboBoxUserControl();
-            this.lbSendData = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Display)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -65,7 +65,7 @@ namespace Client.Ver1
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 388F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.Display, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
@@ -80,9 +80,9 @@ namespace Client.Ver1
             // Display
             // 
             this.Display.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Display.Location = new System.Drawing.Point(303, 3);
+            this.Display.Location = new System.Drawing.Point(391, 3);
             this.Display.Name = "Display";
-            this.Display.Size = new System.Drawing.Size(1005, 806);
+            this.Display.Size = new System.Drawing.Size(917, 806);
             this.Display.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Display.TabIndex = 0;
             this.Display.TabStop = false;
@@ -101,7 +101,7 @@ namespace Client.Ver1
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 207F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 267F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(294, 806);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(382, 806);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel1
@@ -112,17 +112,19 @@ namespace Client.Ver1
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(288, 115);
+            this.panel1.Size = new System.Drawing.Size(376, 115);
             this.panel1.TabIndex = 0;
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lbConnectStatus,
-            this.lbSendData});
+            this.lbSendData,
+            this.lbReceivedData});
             this.statusStrip1.Location = new System.Drawing.Point(0, 93);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(288, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(376, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -131,6 +133,18 @@ namespace Client.Ver1
             this.lbConnectStatus.Name = "lbConnectStatus";
             this.lbConnectStatus.Size = new System.Drawing.Size(117, 17);
             this.lbConnectStatus.Text = "Status: Disconnected";
+            // 
+            // lbSendData
+            // 
+            this.lbSendData.Name = "lbSendData";
+            this.lbSendData.Size = new System.Drawing.Size(71, 17);
+            this.lbSendData.Text = "Send: 0 byte";
+            // 
+            // lbReceivedData
+            // 
+            this.lbReceivedData.Name = "lbReceivedData";
+            this.lbReceivedData.Size = new System.Drawing.Size(92, 17);
+            this.lbReceivedData.Text = "Received: 0 byte";
             // 
             // label1
             // 
@@ -159,13 +173,13 @@ namespace Client.Ver1
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 124);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 201);
+            this.panel2.Size = new System.Drawing.Size(376, 201);
             this.panel2.TabIndex = 1;
             // 
             // btnRefreshLV
             // 
             this.btnRefreshLV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRefreshLV.Location = new System.Drawing.Point(252, 166);
+            this.btnRefreshLV.Location = new System.Drawing.Point(330, 160);
             this.btnRefreshLV.Name = "btnRefreshLV";
             this.btnRefreshLV.Size = new System.Drawing.Size(33, 29);
             this.btnRefreshLV.TabIndex = 3;
@@ -177,7 +191,7 @@ namespace Client.Ver1
             this.lvCameras.HideSelection = false;
             this.lvCameras.Location = new System.Drawing.Point(0, 3);
             this.lvCameras.Name = "lvCameras";
-            this.lvCameras.Size = new System.Drawing.Size(288, 195);
+            this.lvCameras.Size = new System.Drawing.Size(373, 195);
             this.lvCameras.TabIndex = 2;
             this.lvCameras.UseCompatibleStateImageBehavior = false;
             this.lvCameras.View = System.Windows.Forms.View.Tile;
@@ -196,46 +210,48 @@ namespace Client.Ver1
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 331);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(288, 472);
+            this.panel3.Size = new System.Drawing.Size(376, 472);
             this.panel3.TabIndex = 2;
             // 
             // lbTactTime
             // 
+            this.lbTactTime.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.lbTactTime.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.probSendImage,
             this.lbTactTimer});
-            this.lbTactTime.Location = new System.Drawing.Point(0, 446);
+            this.lbTactTime.Location = new System.Drawing.Point(0, 438);
             this.lbTactTime.Name = "lbTactTime";
-            this.lbTactTime.Size = new System.Drawing.Size(284, 22);
+            this.lbTactTime.Size = new System.Drawing.Size(372, 30);
             this.lbTactTime.TabIndex = 6;
             this.lbTactTime.Text = "Timer: 0 ms";
+            // 
+            // probSendImage
+            // 
+            this.probSendImage.Name = "probSendImage";
+            this.probSendImage.Size = new System.Drawing.Size(100, 24);
             // 
             // lbTactTimer
             // 
             this.lbTactTimer.Name = "lbTactTimer";
-            this.lbTactTimer.Size = new System.Drawing.Size(68, 17);
+            this.lbTactTimer.Size = new System.Drawing.Size(68, 25);
             this.lbTactTimer.Text = "Timer: 0 ms";
             // 
             // btnCapture
             // 
             this.btnCapture.BackColor = System.Drawing.Color.Transparent;
             this.btnCapture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCapture.Location = new System.Drawing.Point(230, 404);
+            this.btnCapture.Location = new System.Drawing.Point(318, 396);
             this.btnCapture.Name = "btnCapture";
             this.btnCapture.Size = new System.Drawing.Size(51, 39);
             this.btnCapture.TabIndex = 5;
             this.btnCapture.UseVisualStyleBackColor = false;
             this.btnCapture.Click += new System.EventHandler(this.btnCapture_Click);
             // 
-            // probSendImage
-            // 
-            this.probSendImage.Name = "probSendImage";
-            this.probSendImage.Size = new System.Drawing.Size(100, 16);
-            // 
             // slHeight
             // 
             this.slHeight.DefaultName = "N/A";
             this.slHeight.Location = new System.Drawing.Point(21, 266);
+            this.slHeight.Margin = new System.Windows.Forms.Padding(4);
             this.slHeight.MinimumSize = new System.Drawing.Size(245, 50);
             this.slHeight.Name = "slHeight";
             this.slHeight.Size = new System.Drawing.Size(245, 50);
@@ -245,6 +261,7 @@ namespace Client.Ver1
             // 
             this.slWidth.DefaultName = "N/A";
             this.slWidth.Location = new System.Drawing.Point(21, 206);
+            this.slWidth.Margin = new System.Windows.Forms.Padding(4);
             this.slWidth.MinimumSize = new System.Drawing.Size(245, 50);
             this.slWidth.Name = "slWidth";
             this.slWidth.Size = new System.Drawing.Size(245, 50);
@@ -254,6 +271,7 @@ namespace Client.Ver1
             // 
             this.slGain.DefaultName = "N/A";
             this.slGain.Location = new System.Drawing.Point(21, 146);
+            this.slGain.Margin = new System.Windows.Forms.Padding(4);
             this.slGain.MinimumSize = new System.Drawing.Size(245, 50);
             this.slGain.Name = "slGain";
             this.slGain.Size = new System.Drawing.Size(251, 50);
@@ -263,6 +281,7 @@ namespace Client.Ver1
             // 
             this.slExposure.DefaultName = "N/A";
             this.slExposure.Location = new System.Drawing.Point(21, 86);
+            this.slExposure.Margin = new System.Windows.Forms.Padding(4);
             this.slExposure.MinimumSize = new System.Drawing.Size(245, 50);
             this.slExposure.Name = "slExposure";
             this.slExposure.Size = new System.Drawing.Size(251, 50);
@@ -272,23 +291,18 @@ namespace Client.Ver1
             // 
             this.cbImageFormat.DefaultName = "N/A";
             this.cbImageFormat.Location = new System.Drawing.Point(21, 3);
+            this.cbImageFormat.Margin = new System.Windows.Forms.Padding(4);
             this.cbImageFormat.Name = "cbImageFormat";
             this.cbImageFormat.Size = new System.Drawing.Size(251, 57);
             this.cbImageFormat.TabIndex = 0;
             // 
-            // lbSendData
-            // 
-            this.lbSendData.Name = "lbSendData";
-            this.lbSendData.Size = new System.Drawing.Size(71, 17);
-            this.lbSendData.Text = "Send: 0 byte";
-            // 
-            // ClientMain
+            // FrmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1311, 812);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "ClientMain";
+            this.Name = "FrmClient";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Display)).EndInit();
@@ -330,6 +344,7 @@ namespace Client.Ver1
         private System.Windows.Forms.ToolStripStatusLabel lbTactTimer;
         private System.Windows.Forms.ToolStripProgressBar probSendImage;
         private System.Windows.Forms.ToolStripStatusLabel lbSendData;
+        private System.Windows.Forms.ToolStripStatusLabel lbReceivedData;
     }
 }
 

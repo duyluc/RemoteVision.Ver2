@@ -10,10 +10,21 @@ using System.Threading.Tasks;
 
 namespace PyVisionSupport
 {
+    [Serializable()]
     public class LImage
     {
+        public string UnitID { get; set; }
         public string CameraSerialNumber { get; set; }
         public Bitmap BitmapImage { get; set; }
+        public LImage()
+        {
+        }
+        public LImage(Bitmap bitimg,string unit, string cameraSerialNumber)
+        {
+            this.BitmapImage = bitimg;
+            CameraSerialNumber = cameraSerialNumber;
+            this.UnitID = unit;
+        }
         public LImage(IGrabResult grabresult, string unitid, string cameraSerialNumber, PixelFormat InputFormat = PixelFormat.Format32bppRgb, PixelType OutputFormat = PixelType.BGRA8packed)
         {
             CameraSerialNumber = cameraSerialNumber;

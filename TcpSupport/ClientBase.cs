@@ -103,7 +103,6 @@ namespace TcpSupport
             catch (Exception t)
             {
                 _recieveData = null;
-                throw t;
             }
             finally
             {
@@ -116,6 +115,7 @@ namespace TcpSupport
         public bool Send(Socket _tcpSocket, byte[] _sendData)
         {
             bool _sendcomplite = false;
+            int offset = 0;
             try
             {
                 int _datalength = _sendData.Length;
@@ -123,7 +123,6 @@ namespace TcpSupport
                 int _timeout = this.ReceivetimeOut / this.WaitingGetSampleTime;
                 int _waitingcounter = 0;
                 byte[] byte_receivedatalength = BitConverter.GetBytes(_datalength);
-                int offset = 0;
                 if (!_tcpSocket.Connected) throw this.ConnectInterruptEx;
 
                 Thread _t = new Thread(() =>
@@ -161,12 +160,12 @@ namespace TcpSupport
             catch (Exception t)
             {
                 _sendcomplite = false;
-                throw t;
             }
             finally
             {
 
             }
+            OnSended(offset);
             return _sendcomplite;
         }
 
@@ -176,9 +175,9 @@ namespace TcpSupport
             SendStatus = DeleveryStatus.Sending;
         }
 
-        public void OnSended()
+        public void OnSended(int sended)
         {
-            Sended?.Invoke(this, EventArgs.Empty);
+            Sended?.Invoke(this, new ClientEventArgs(sended));
             SendStatus = DeleveryStatus.Sended;
         }
 

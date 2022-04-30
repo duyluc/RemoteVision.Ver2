@@ -13,6 +13,8 @@ using TcpSupport;
 using PyVisionSupport;
 using PylonController;
 using System.Net;
+using TcpSupport;
+using System.Threading;
 
 namespace Client.Ver1
 {
@@ -24,7 +26,7 @@ namespace Client.Ver1
         private Stopwatch StopWatch { get; set; }
         private PyCamera mCamera { get; set; }
         private ClientTcp Client { get; set; }
-        private IPEndPoint ServerEp { get; set; }
+        private Dictionary<string, Terminal> OUTPUT { get; set; }
 
         public FrmClient()
         {
@@ -38,7 +40,9 @@ namespace Client.Ver1
             UpdateDevice();
             this.FormClosing += ClientMain_FormClosing;
             this.StopWatch = new Stopwatch();
-
+            OUTPUT = new Dictionary<string, Terminal>();
+            this.OutputImage = new Terminal("OutputImage");
+            OUTPUT.Add(this.OutputImage.Name, this.OutputImage);
         }
 
         private void ClientMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -280,16 +284,54 @@ namespace Client.Ver1
 
         private void btnCapture_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    this.StartStopWatch();
+            //    Configuration.AcquireSingleFrame(mCamera, null);
+            //    mCamera.StreamGrabber.Start(1, GrabStrategy.OneByOne, GrabLoop.ProvidedByStreamGrabber);
+            //}
+            //catch (Exception t)
+            //{
+            //    this.ShowException(t);
+            //}
+
             try
             {
-                this.StartStopWatch();
-                Configuration.AcquireSingleFrame(mCamera, null);
-                mCamera.StreamGrabber.Start(1, GrabStrategy.OneByOne, GrabLoop.ProvidedByStreamGrabber);
+                Thread _t = new Thread(() =>
+                {
+                    Bitmap bitimg = new Bitmap(@"C:\Users\duong\Desktop\Image.jpg");
+                    LImage Image = new LImage(bitimg, "0x00", "12345");
+                    this.OutputImage.SetValue(Image);
+                    byte[] _serializedOutput = Serialize.ObjectToByteArray(this.OUTPUT);
+                    string ip = this.tbIPAddress.Text.Split(':')[0];
+                    int port = int.Parse(this.tbIPAddress.Text.Split(':')[1]);
+                    this.Client = new ClientTcp(ip, port);
+                    this.Client.Received += Client_Received;
+                    this.Client.Sended += Client_Sended;
+                    Task _ = Client.Command(_serializedOutput);
+                    _.Wait();
+                });
             }
-            catch (Exception t)
+            catch(Exception t)
             {
-                this.ShowException(t);
+                MessageBox.Show(t.Message);
             }
+        }
+
+        private void Client_Sended(object sender, EventArgs e)
+        {
+            this.lbSendData.Text = $"Send: {((ClientEventArgs)e).SendedData} byte";
+        }
+
+        private void Client_Received(object sender, EventArgs e)
+        {
+            ClientEventArgs _receivedataArgs = e as ClientEventArgs;
+            byte[] data = _receivedataArgs.RecieveData;
+            Dictionary<string, Terminal> INPUT = Serialize.ByteArrayToObject(data);
+            Bitmap img = (INPUT["OutputImage"].Value as LImage).BitmapImage;
+            this.Display.Invoke(new Action(() => { this.Display.Image = img; }));
+            if (data == null) return;
+            this.lbReceivedData.Text = $"Received: {data.Length} byte";
         }
 
         public void StartStopWatch()

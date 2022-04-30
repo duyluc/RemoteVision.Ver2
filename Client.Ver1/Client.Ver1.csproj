@@ -73,6 +73,9 @@
     <Compile Include="PylonController\IntSliderUserControl.designer.cs">
       <DependentUpon>IntSliderUserControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmClient.resx">
+      <DependentUpon>FrmClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

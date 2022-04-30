@@ -1,0 +1,17 @@
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\bin\Debug\Server.Ver1.exe.config
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\bin\Debug\Server.Ver1.exe
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\bin\Debug\Server.Ver1.pdb
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\bin\Debug\PyVisionSupport.dll
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\bin\Debug\TcpSupport.dll
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\bin\Debug\Basler.Pylon.dll
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\bin\Debug\PyVisionSupport.pdb
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\bin\Debug\TcpSupport.pdb
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\bin\Debug\Basler.Pylon.xml
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\obj\Debug\Server.Ver1.csproj.AssemblyReference.cache
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\obj\Debug\Server.Ver1.Properties.Resources.resources
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\obj\Debug\Server.Ver1.csproj.GenerateResource.cache
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\obj\Debug\Server.Ver1.csproj.CoreCompileInputs.cache
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\obj\Debug\Server.Ver1.csproj.CopyComplete
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\obj\Debug\Server.Ver1.exe
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\obj\Debug\Server.Ver1.pdb
+D:\TAI LIEU CONG VIEC\PROJECT SOURCE\RemoteVision.Ver2\Server.Ver1\obj\Debug\Server.Ver1.FrmServer.resources

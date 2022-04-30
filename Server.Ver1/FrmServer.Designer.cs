@@ -40,7 +40,6 @@ namespace Server.Ver1
             this.lvConnectedClient = new System.Windows.Forms.ListView();
             this.MessageBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -127,7 +126,7 @@ namespace Server.Ver1
             this.tbServerAddress.ReadOnly = true;
             this.tbServerAddress.Size = new System.Drawing.Size(174, 20);
             this.tbServerAddress.TabIndex = 1;
-            this.tbServerAddress.Text = "127.0.0.1:999";
+            this.tbServerAddress.Text = "127.0.0.1:9999";
             this.tbServerAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
@@ -158,16 +157,15 @@ namespace Server.Ver1
             this.MessageBox.Size = new System.Drawing.Size(236, 333);
             this.MessageBox.TabIndex = 2;
             // 
-            // ServerMain
+            // FrmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 860);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "ServerMain";
+            this.Name = "FrmServer";
             this.Text = "Server";
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel1.ResumeLayout(false);
