@@ -311,6 +311,8 @@ namespace Client.Ver1
                     Task _ = Client.Command(_serializedOutput);
                     _.Wait();
                 });
+                _t.Start();
+                _t.IsBackground = true;
             }
             catch(Exception t)
             {
