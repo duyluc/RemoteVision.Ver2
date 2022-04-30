@@ -31,6 +31,7 @@ namespace Server.Ver1
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.DisplayImage = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -39,13 +40,12 @@ namespace Server.Ver1
             this.label1 = new System.Windows.Forms.Label();
             this.lvConnectedClient = new System.Windows.Forms.ListView();
             this.MessageBox = new System.Windows.Forms.TextBox();
-            this.DisplayImage = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayImage)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DisplayImage)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -77,6 +77,16 @@ namespace Server.Ver1
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(955, 854);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // DisplayImage
+            // 
+            this.DisplayImage.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.DisplayImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DisplayImage.Location = new System.Drawing.Point(3, 3);
+            this.DisplayImage.Name = "DisplayImage";
+            this.DisplayImage.Size = new System.Drawing.Size(471, 421);
+            this.DisplayImage.TabIndex = 0;
+            this.DisplayImage.TabStop = false;
             // 
             // tableLayoutPanel3
             // 
@@ -130,7 +140,7 @@ namespace Server.Ver1
             this.tbServerAddress.ReadOnly = true;
             this.tbServerAddress.Size = new System.Drawing.Size(174, 20);
             this.tbServerAddress.TabIndex = 1;
-            this.tbServerAddress.Text = "127.0.0.1:9999";
+            this.tbServerAddress.Text = "192.168.1.98:9999";
             this.tbServerAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
@@ -161,16 +171,6 @@ namespace Server.Ver1
             this.MessageBox.Size = new System.Drawing.Size(236, 333);
             this.MessageBox.TabIndex = 2;
             // 
-            // DisplayImage
-            // 
-            this.DisplayImage.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.DisplayImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DisplayImage.Location = new System.Drawing.Point(3, 3);
-            this.DisplayImage.Name = "DisplayImage";
-            this.DisplayImage.Size = new System.Drawing.Size(471, 421);
-            this.DisplayImage.TabIndex = 0;
-            this.DisplayImage.TabStop = false;
-            // 
             // FrmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,13 +181,13 @@ namespace Server.Ver1
             this.Text = "Server";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayImage)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DisplayImage)).EndInit();
             this.ResumeLayout(false);
 
         }
