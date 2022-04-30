@@ -39,10 +39,13 @@ namespace Server.Ver1
             this.label1 = new System.Windows.Forms.Label();
             this.lvConnectedClient = new System.Windows.Forms.ListView();
             this.MessageBox = new System.Windows.Forms.TextBox();
+            this.DisplayImage = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayImage)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -65,6 +68,7 @@ namespace Server.Ver1
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.DisplayImage, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(253, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -157,6 +161,16 @@ namespace Server.Ver1
             this.MessageBox.Size = new System.Drawing.Size(236, 333);
             this.MessageBox.TabIndex = 2;
             // 
+            // DisplayImage
+            // 
+            this.DisplayImage.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.DisplayImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DisplayImage.Location = new System.Drawing.Point(3, 3);
+            this.DisplayImage.Name = "DisplayImage";
+            this.DisplayImage.Size = new System.Drawing.Size(471, 421);
+            this.DisplayImage.TabIndex = 0;
+            this.DisplayImage.TabStop = false;
+            // 
             // FrmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,12 +180,14 @@ namespace Server.Ver1
             this.Name = "FrmServer";
             this.Text = "Server";
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -188,6 +204,7 @@ namespace Server.Ver1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView lvConnectedClient;
         private System.Windows.Forms.TextBox MessageBox;
+        private System.Windows.Forms.PictureBox DisplayImage;
     }
 }
 

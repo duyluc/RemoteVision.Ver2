@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PyVisionSupport;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,12 @@ namespace Server.Ver1
 
         private void ServerMain_Received(object sender, EventArgs e)
         {
+            Dictionary<string,Terminal> Input = Serialize.ByteArrayToObject(((ClientEventArgs)e).RecieveData) as Dictionary<string,Terminal>;
+
+            this.DisplayImage.Invoke(new Action(() =>
+            {
+                this.DisplayImage.Image = (Input["OutputImage"].Value as LImage).BitmapImage;
+            }));
             this.MessageBox.Invoke(new Action(() =>
             {
                 this.MessageBox.Text = ((ClientEventArgs)e).RecieveData.Length.ToString();

@@ -126,14 +126,7 @@ namespace TcpSupport
                         Socket _clientsocket = Listener.Accept();
                         ClientBase _client = new ClientBase(_clientsocket);
                         string _ipaddress = ((IPEndPoint)_clientsocket.RemoteEndPoint).Address.ToString();
-                        if (this.ConnectedClients.ContainsKey(_ipaddress))
-                        {
-                            this.ConnectedClients[_ipaddress] = _client;
-                        }
-                        else
-                        {
-                            this.ConnectedClients.Add(_ipaddress, _client);
-                        }
+                        this.ConnectedClients.Add(_ipaddress, _client);
                         OnConnectAccepted(_ipaddress);
                         Task _servertask = ClientServiceTask(_ipaddress);
                         this.ClientServiceTasks.Add(_ipaddress, _servertask);
@@ -172,7 +165,8 @@ namespace TcpSupport
             }
             finally
             {
-
+                this.ConnectedClients.Remove(ip);
+                this.ClientServiceTasks.Remove(ip);
             }
         }
 
