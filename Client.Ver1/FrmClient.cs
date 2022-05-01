@@ -297,6 +297,9 @@ namespace Client.Ver1
 
             try
             {
+                if (this.Client != null) return;
+                Stopwatch t = new Stopwatch();
+                
                 Thread _t = new Thread(() =>
                 {
                     Bitmap bitimg = new Bitmap(@"C:\Users\duong\Desktop\Image.jpg");
@@ -308,8 +311,11 @@ namespace Client.Ver1
                     this.Client = new ClientTcp(ip, port);
                     this.Client.Received += Client_Received;
                     this.Client.Sended += Client_Sended;
+                    t.Start();
                     Task _ = Client.Command(_serializedOutput);
                     _.Wait();
+                    t.Stop();
+                    this.lbTactTimer.Text = t.ElapsedMilliseconds.ToString();
                 });
                 _t.Start();
                 _t.IsBackground = true;

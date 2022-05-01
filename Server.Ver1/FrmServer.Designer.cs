@@ -85,6 +85,7 @@ namespace Server.Ver1
             this.DisplayImage.Location = new System.Drawing.Point(3, 3);
             this.DisplayImage.Name = "DisplayImage";
             this.DisplayImage.Size = new System.Drawing.Size(471, 421);
+            this.DisplayImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.DisplayImage.TabIndex = 0;
             this.DisplayImage.TabStop = false;
             // 
@@ -137,10 +138,9 @@ namespace Server.Ver1
             // 
             this.tbServerAddress.Location = new System.Drawing.Point(48, 7);
             this.tbServerAddress.Name = "tbServerAddress";
-            this.tbServerAddress.ReadOnly = true;
             this.tbServerAddress.Size = new System.Drawing.Size(174, 20);
             this.tbServerAddress.TabIndex = 1;
-            this.tbServerAddress.Text = "192.168.1.98:9999";
+            this.tbServerAddress.Text = "127.0.0.1:9999";
             this.tbServerAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
